@@ -1,0 +1,29 @@
+---#zzz x:-9500 y:9500
+
+```{r echo = F, eval = T, message = F}
+knitr::opts_chunk$set(fig.path = 'assets/fig/')
+library(ggplot2)
+qplot(wt, mpg, data = mtcars)
+```
+
+<ul>
+<li data-jmpress="fade">
+A</li>
+<li data-jmpress="drive-right after 500ms">
+B</li>
+<li data-jmpress="drive-up after 500ms">
+B</li>
+<li data-jmpress="warp-right after 500ms">
+B</li>
+<li data-jmpress="fade after 500ms">
+B</li>
+<li data-jmpress="drive-right after 500ms">
+V</li>
+</ul>
+
+--- #avil x:5900 y:5500 scale:1.5
+![](Slide17.png)
+
+
+--- #big x:0 y:-1250 rot:0 z:100 scale:1 .hide
+The <b>BIG</b> <span class="thoughts">question!</span>

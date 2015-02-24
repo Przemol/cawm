@@ -1,0 +1,237 @@
+/*Github Ribbon Test*/
+/* Source: https://github.com/dciccale/css3-github-ribbon */
+/* Define classes for example, definition, problem etc. */
+/* Choose meaningful colors for background and text */
+
+@import url(http://fonts.googleapis.com/css?family=Audiowide);
+
+
+.step:not(.active) { opacity: 0.3; }
+.step.hide:not(.active) { opacity: 0; }
+
+#qf1v2 img {
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.source {
+    color: #444444;
+    font-size: 0.4em;
+    transform: rotate(270deg);
+    transform-origin: left top 0;
+    margin-left: -40px;
+    margin-top: -16px;
+}
+
+#task ul {
+    margin-left: 50px;
+    font-size: 90%;
+}
+
+
+#spaccs ul {
+    margin-left: 50px;
+    font-size: 90%;
+}
+
+#why1 ul {
+    margin-left: 50px;
+    font-size: 80%;
+}
+
+ol {
+    list-style: decimal outside;
+}
+
+ul {
+    list-style: disc outside;
+}
+
+.red {
+      color: red;
+}
+
+.cent {
+      text-align: center;
+}
+
+.lg {
+      font-size: 2.4em;
+}
+
+.md {
+      font-size: 2em;
+}
+
+.sm {
+      font-size: 1.8em;
+}
+
+
+#v1.present .zzz {
+    
+    display: inline-block;
+    transform-style:         preserve-3d;
+    transform:         translateZ(400px) rotate(-10deg);
+    transition:         0.5s;
+    
+}
+
+
+#logo img {
+    
+   transform:         translateZ(-1000000px);
+   transform-style: preserve-3d;
+   
+    
+}
+
+#logo.present img {
+    transition: 1s;
+    transform:         translateZ(0px);
+
+    
+}
+
+.impress-on-overview #logo img {
+    
+    transform: translateZ(0px);
+    
+}
+
+.impress-on-why #logo img {
+    
+    transform: translateZ(0px);
+    
+}
+
+#v1.present .zzz {
+    
+    display: inline-block;
+    transform-style:         preserve-3d;
+    transform:         translateZ(400px) rotate(-10deg);
+    transition:         0.5s;
+    
+}
+    
+h1 { 
+    font-family: Audiowide; 
+    font-weight: 400; 
+    color: black;
+    font-size: 130%;
+    text-align: right;
+    line-height: 130%;
+    margin-top: 4em;
+    margin-bottom: 2em;
+}
+
+
+h2 {
+    font-size: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: 500;
+ }
+
+.example {
+  background-color: #121621;
+  top: 1.2em;
+  right: -3.2em;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  -moz-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  color: #FF0;
+  display: block;
+  padding: .6em 3.5em;
+  position: absolute;
+  font: bold .82em sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px -1px 8px rgba(0,0,0,0.60);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.definition {
+  background-color: #a00;
+  top: 1.2em;
+  right: -3.2em;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  -moz-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
+  color: #FFF;
+  display: block;
+  padding: .6em 3.5em;
+  position: absolute;
+  font: bold .82em sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px -1px 8px rgba(0,0,0,0.60);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+
+
+#o1 { display: none }
+
+/*
+    We also make other steps visible and give them a pointer cursor using the
+    `impress-on-` class.
+*/
+.impress-on-o1 #problem, .impress-on-overview #problem {
+    opacity: 1;
+    cursor: pointer;
+        display: inline-block;
+    transform: translate(-50%, -50%) translate3d(300px, 1100px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.2) !important;
+    
+}
+
+.impress-on-o0 .step, .impress-on-o1 .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.impress-on-overview .step.hide:not(.active), 
+.impress-on-o2 .step.hide:not(.active), 
+.impress-on-o3 .step.hide:not(.active) { 
+    opacity: 1; 
+}
+
+.impress-on-overview .step,
+.impress-on-o0 .step,
+.impress-on-o1 .step,
+.impress-on-o2 .step,
+.impress-on-o3 .step,
+.impress-on-hibo .step,
+.impress-on-gbo .step,
+.impress-on-osp .step
+{
+    opacity: 1;
+    cursor: pointer;
+}
+
+#why h2, #trf h2 {
+    margin-bottom: 0px;
+}
+#why hr, #trf hr {
+    margin-top: 10px;
+}

@@ -1,0 +1,395 @@
+---
+title: SeqPlots
+author: Przemyslaw Stempor
+framework: impressjs
+#highlighter: highlight.js  # {highlight.js, prettify, highlight}
+#hitheme: tomorrow  
+#mode: draft
+mode: selfcontained
+--- #s .slide x:0 y:-2000 z:0
+
+<h1><b style="font-size: 140%;">SeqPlots</b> - a fast interactive web tool for visualizing next generation sequencing signals along genomic features.</h1>
+<p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @ Internal Seminar, 25 February 2015<p>
+
+--- #big x:0 y:-1250 rot:0 z:100 scale:1 .hide
+The <b>BIG</b> <span class="thoughts">question!</span>
+
+--- #q x:0 y:-700 z:0 rot:0 scale:2 .cent 
+What are the **relationships** between **chromatin features**, underlying **DNA sequence** and **gene regulation**?
+
+--- #qf1v2 x:-300 y:50 z:0 rot:0 scale:1.2
+<img src="chromatin2.jpg" alt="chrom" height='500px'>
+<p class="source" style="font-size: 0.46em;">Source: http://www.cliffsnotes.com/assets/24452.jpg</p>
+
+--- #qf2 x:700 y:50 z:0 rot:0 scale:1.2
+![mod](model.png)
+
+--- #o0 x:0 y:-220 z:600 rot:0 scale:1
+
+--- #tools x:0 y:900 z:0 rot:0 scale:2
+
+## Every BIG question needs **small tools**.
+
+--- #t1 x:-350 y:1200 z:0 rot:0 scale:1.2
+- ChIP-<b style="color: red;">seq</b>
+- RNA-<b style="color: red;">seq</b>
+- DNase-<b style="color: red;">seq</b>
+- MNase-<b style="color: red;">seq</b>
+- ATAC-<b style="color: red;">seq</b>
+
+--- #rad x:-350 y:1650 z:0 rot:0 scale:1 .red
+<img src="Red_Arrow_Down.svg" alt="rad" hight=80px, width=80px style="margin-left:50px; margin-bottom:40px">
+<br>
+<p>1. DNA library</p>
+<p>2. Short reads</p>
+<p>3. <b>Genomic position</b></p>
+
+
+--- #problem x:300 y:1100 z:0 rot:0 roty:90 scale:1.2 .sm .hide
+<span class=red>Technical problem</span> – typical experiment produce **tens of 
+millions** of such positions over **hundreds of millions to billions** possible
+locations (base pairs) in the genome!
+
+--- #solution1 x:300 y:1450 z:0 rot:0 scale:1 
+<u>Solutions:</u>
+- Shrink/simplify the data so they are small enough for us to understand (e.g. peak calls, unsupervised machine learning) 
+
+--- #solution2 x:300 y:1750 z:0 rot:0 scale:1
+- Use <b>data visualization</b> to make an original comprehensible to us
+
+--- #o1 x:0 y:1400 z:600 rot:0 scale:1
+
+
+
+
+--- #vis x:0 y:2400 z:0 rot:0 scale:2
+## Scientific data visualization – is it important?
+
+--- #v1 x:0 y:2650 z:0 rot:0 scale:2 .sm
+- Data visualization is <b class="zzz">prevalent approach</b> in science
+
+--- #v1a x:-1000 y:2650 z:300 roty:90 scale:1 .md
+![](heatmap.jpg)
+Shaded matrix display from Loua (1873).
+
+--- #v2 x:0 y:3000 z:0 rot:0 scale:2.0 .sm
+- Since the advent of sequencing techniques there is **great advance** in methods specific to this field 
+- Helps us to **better understand the data** and find the patterns that might be lost due to shrinkage/simplification
+- Great for **exploratory data analyses**
+- Very useful for **results presentation**
+
+
+--- #o2 x:-200 y:2800 z:600 rot:0 scale:1
+
+
+
+
+--- #stat x:0 y:3900 z:0 rot:0 scale:3 .sm .hide
+## We can visualize reads directly, but usually more useful is **converting them to a read coverage**
+
+--- #statp1 x:-300 y:4600 z:200 rot:0 scale:1.5
+![](readscov.png)
+<br />
+![](covarrow.png)
+
+--- #statp2 x:100 y:5200 z:0 rot:0 scale:1.5
+![](trackscov.png)
+
+--- #o3 x:0 y:4600 z:1200 rot:0 scale:1
+
+
+
+
+
+
+--- #global x:3000 y:-2300 z:0 scale:2 
+## <span class='red'>*-seq</span> data visualization:<br/>global approaches.
+
+--- #circos x:3000 y:-1700 z:0 scale:1.2
+```{r circos, fig.width=8, fig.height=8, echo=FALSE, message=FALSE, warning=FALSE, dev='svg', dev.args=list(bg=NA)}
+
+library(circlize) 
+
+par(mar = c(1, 1, 1, 1))
+circos.initializeWithIdeogram()
+
+bed = generateRandomBed(nr = 200, nc = 4)
+circos.genomicPosTransformLines(bed, posTransform = posTransform.default, horizontalLine = "top")
+om = circos.par("track.margin")
+oc = circos.par("cell.padding")
+circos.par(track.margin = c(om[1], 0), cell.padding = c(0, 0, 0, 0))
+f = colorRamp2(breaks = c(-1, 0, 1), colors = c("blue", "white", "red"))
+circos.genomicTrackPlotRegion(bed, stack = TRUE, panel.fun = function(region, value, ...) {
+    circos.genomicRect(region, value, col = f(value[[1]]), 
+        border = f(value[[1]]), lwd = 0.1, posTransform = posTransform.default, ...)
+}, bg.border = NA, track.height = 0.1)
+circos.par(track.margin = om, cell.padding = oc)
+
+bed = generateRandomBed(nr = 500, fun = function(k) runif(k)*sample(c(-1, 1), k, replace = TRUE))
+circos.genomicTrackPlotRegion(bed, ylim = c(-1, 1), panel.fun = function(region, value, ...) {
+    col = ifelse(value[[1]] > 0, "red", "green")
+    circos.genomicPoints(region, value, col = col, cex = 0.5, pch = 16)
+    cell.xlim = get.cell.meta.data("cell.xlim")
+    for(h in c(-1, -0.5, 0, 0.5, 1)) {
+        circos.lines(cell.xlim, c(h, h), col = "#00000040")
+    }
+}, track.height = 0.1)
+
+bed = generateRandomBed(nr = 500, fun = function(k) rnorm(k, 0, 50))
+circos.genomicTrackPlotRegion(bed, panel.fun = function(region, value, ...) {
+    x = (region[[2]] + region[[1]]) / 2
+    y = value[[1]]
+    loess.fit = loess(y ~ x)
+    loess.predict = predict(loess.fit, x, se = TRUE)
+    d1 = c(x, rev(x))
+    d2 = c(loess.predict$fit + loess.predict$se.fit, rev(loess.predict$fit - loess.predict$se.fit))
+    circos.polygon(d1, d2, col = "#CCCCCC", border = NA)
+    circos.points(x, y, pch = 16, cex = 0.5)
+    circos.lines(x, loess.predict$fit)
+}, track.height = 0.1)
+
+
+bed_list = list(generateRandomBed(nr = 500, fun = function(k) runif(k)),
+                generateRandomBed(nr = 500, fun = function(k) runif(k)))
+col = c("#FF000040", "#0000FF40")
+circos.genomicTrackPlotRegion(bed_list, ylim = c(-1, 1), panel.fun = function(region, value, ...) {
+    i = getI(...)
+    if(i == 1) {
+        circos.genomicLines(region, value, area = TRUE, baseline = 0, col = "orange", border = NA, ...)
+    } else {
+        circos.genomicLines(region, -value, area = TRUE, baseline = 0, col = "yellow", border = NA, ...)
+    }
+}, track.height = 0.1)
+
+region1 = generateRandomBed(nr = 1000); region1 = region1[sample(nrow(region1), 20), ]
+region2 = generateRandomBed(nr = 1000); region2 = region2[sample(nrow(region2), 20), ]
+circos.genomicLink(region1, region2, col = sample(10, 20, replace = TRUE))
+
+highlight.chromosome("chr1")
+
+circos.clear()
+```
+
+--- #hibo x:3000 y:-1900 z:600 scale:1
+
+
+
+--- #gb x:3000 y:-900 z:0 scale:2
+## <span class='red'>*-seq</span> data visualization:<br />genome browsers.
+
+--- #ucsc x:2650 y:-500 z:0 scale:1 
+UCSC Genome Browser
+![](ucsc.png)
+
+--- #igv x:3350 y:-500 z:0 scale:1
+IGV (Broad Institute)
+![](igv.png)
+
+--- #biod x:2675 y:0 z:0 scale:1.05
+Biodalliance (Thomas Down)
+![](biodalliance.png)
+
+--- #biod x:3000 y:-100 z:0 scale:1.5
+
+--- #gbo x:3000 y:-400 z:600 scale:1
+
+
+
+
+
+
+
+
+--- #trf x:3000 y:2400 z:0 scale:2
+## <span class='red'>*-seq</span> data visualization:<br />multiple parts of genome, using pre-defined genomic features
+<hr/>
+
+--- #av x:3000 y:3100 z:0 scale:2  .sm .cent
+```{r aver, fig.width=8, fig.height=5, echo=FALSE, message=FALSE, warning=FALSE, dev='svg', dev.args=list(bg=NA)}
+load('sp/ex1.Rdata')
+require(seqplots)
+par(xpd=FALSE)
+plotAverage(
+    to_save[[1]], 
+    main='H3K4me3 at highly expressed genes in C. elegans',
+    labels = 'H3K4me3 at highly expressed genes in C. elegans',
+    legend_ext = TRUE, ylim=c(0,15),
+    xlab='Gene body', ylab='ChIP siganl', 
+)
+par(xpd=TRUE)
+w=-3
+rect(0, w, 1000, w-1.9, border='red', lwd = 3)
+par(xpd=FALSE)
+
+
+```
+
+--- #hm x:3000 y:3920 z:0 scale:2  .sm .cent
+```{r heatmap, fig.width=9.1, fig.height=6, echo=FALSE, message=FALSE, warning=FALSE, dev='png', dev.args=list(bg=NA)}
+load('sp/ex1.Rdata')
+plotHeatmap(
+    to_save[[1]], sortrows = 'decreasing', clstmethod = "none",
+    #labels = 'H3K4me3 at highly expressed genes in C. elegans',
+    labels = '',
+    )
+
+
+
+```
+
+--- #osp x:3000 y:3250 z:1500 scale:1
+
+
+--- #ngsp1 x:2550 y:5000 z:0 scale:1.2  .sm .cent
+Command line tools, e.g. ngsplot
+<hr/>
+![](nsgp1.png)
+<br /><br />
+![](ngsp2.png)
+
+--- #dt1 x:3550 y:5000 z:0 scale:1.2 .sm .cent
+Tools on Galaxy platform: deepTools, Cistrome, etc.
+<hr/>
+<img src="dt1.png" alt="" height="336px">
+<img src="dt2.png" alt="">
+
+
+
+--- #logo x:3000 y:1300 scale:4
+```{r logo, fig.width=3*3, fig.height=5, echo=FALSE, message=FALSE, warning=FALSE, dev='svg', dev.args=list(family='Audiowide', bg=NA)}
+library(extrafont)
+#loadfonts()
+plotLogo <- function(
+    cm='black', cax='black', ca='darkgreen', fw='#DD0030', rev='Royalblue', 
+    file='LogoSeqPlotsLabeled.pdf', label=TRUE
+){
+    
+    require(grid)
+    library(extrafont)
+    #layout(t(c(1,2,2,2)))
+    layout(rbind(t(c(1,1,1)), t(c(2,2,2))))
+    
+    rad=pi/8
+    a=2
+    b=1.0 #period=pi
+    t=seq(-pi*0.9, pi*3, by=0.1)
+    #shift ratio: 13/(13+21)
+    r=pi *  (13/(13+21))
+    
+    R <- matrix(c(cos(rad),-sin(rad),sin(rad),cos(rad)),2,2, byrow=T)
+    
+    z <- R %*% rbind(t*b, (sin(t)*a))
+    z2 <- R %*% rbind(t*b+r, (sin(t)*a))
+    
+    par(pty='s', mar=c(1,1,1,1), oma=c(0,0,0,0))
+    
+    plot(t(z), lwd=12, type='n', col='Royalblue', asp = 1, xlim=c(-4, 10), ylim=c(-4, 10), axes=F, xlab=NA, ylab=NA)
+    arrows(-3.5, -3.5, -3.5 ,10, lwd=10, col=cax, angle = 20)
+    arrows(-3.5, -3.5, 10, -3.5, lwd=10, col=cax, angle = 20)
+    
+    lines(t(z2), lwd=12, col='#DD0030')
+    lines(t(z), lwd=12, col='Royalblue')
+    
+    lines(c(-2, 0.5, 5), c(1, 6.5, 5.5), lwd=15, col=ca)
+    arrows(5, 5.5, 9, 10, lwd=15, length = 0.4,  angle = 35, code = 2, col=ca)
+    
+    
+    par(pty='m')
+    plot.new()
+    
+    text(0.5, 0.5, "SeqPlots", cex = 15.5, col=cm)
+    
+}
+plotLogo()
+
+```
+
+
+
+
+
+
+
+--- #why x:6000 y:-2200 scale:3 .cent
+
+## Why do we need **yet another** visualization tool?
+<hr />
+
+--- #why1 x:6000 y:-1600 scale:2 .md
+Existing solutions did not meet our requirements:
+- Custom scripts and pargramic languages labraries allows to run things in batch, 
+  but are **too complicated** to run for users without IT expertise
+- Even with good training these tools **requires a lot of time** to code
+- Galaxy/Cistrome was too **slow** and **not configurable** enough 
+  (plus **data privacy** problem!)
+
+<hr />
+
+
+--- #why2 x:6000 y:-1000 scale:2 .cent .md
+I want take the best from two worlds - connect the **intuitiveness** and **interactiveness** of genome browsers with **visualization power** of plotting 1000s of  genomic features at once.
+
+
+--- #why3 x:6000 y:-500 scale:2 .cent .lg
+<hr />
+Goal: **fast**, **intuitive** software for **exploratory data analyses**!
+<hr />
+
+--- #seqplots x:6000 y:-50 scale:3 .cent
+## SeqPlots is **this** software!
+
+--- #spim x:6000 y:900 scale:2 .cent .md
+<hr />
+We developed a highly configurable, **GUI operated web application** for **rapidly generating** sets of publication quality **linear plots** and **heatmaps**. 
+<hr />
+<img src="sp.png" alt="sp" height=600px>
+
+
+
+
+--- #waod x:6000 y:2100 scale:2.5 .lg .cent
+**See SeqPlots in action on the movie...**
+<hr />
+
+--- #task x:6900 y:2800 scale:1 .slide z:380 roty:-90
+## **Quick explanaton of the example in hand**
+<hr />
+
+**Files - signal profiles from ChIP-seq experiments:**
+- H3K4me3 (mark active promoters)
+- H3K36me3 (mark transcribed regions of active genes)
+- HTZ1 (histon variant, *C. elegans* homolog of H2A.Z)
+
+<hr />
+
+**Files - genomic features:**
+- *C. elegans* transcription start sites (TSS), divided into 5 expression bins 
+  based on RNA-seq data
+
+<hr />
+
+**Tasks:**
+- Compare histone marks between highly and lowly expressed genes.
+- Check if CpG (CG-dinucleotide) occupancy is higher on transcription start sites (TSS) relative to local neighborhood
+
+<hr />
+
+
+
+--- #vid x:6000 y:2800 scale:1.8 .lg .cent
+<iframe width="840" height="600" src="https://www.youtube.com/embed/9TKYZQa1Ykw?vq=hd720&rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+--- #spaccs x:6000 y:3900 scale:2 .lg
+<hr />
+The app is available as:
+
+- **R package** from Bioconductor 
+- **Mac OS X app**
+- **Server deployment** with Shiny Server
+- **Web service** (shinyapps.io, Amazon EC2, etc.) 
+
+<hr />
+
+--- #clust x:5900 y:5000 scale:1.5
+![](Slide17.png)
+

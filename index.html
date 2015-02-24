@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=1024" />
+   <meta name="apple-mobile-web-app-capable" content="yes" />
+   <title>SeqPlots</title>
+   <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+   <meta name="author" content="Przemyslaw Stempor" />
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+   <link href="libraries/frameworks/impressjs/css/impress-demo.css" rel="stylesheet" />
+   <link rel="shortcut icon" href="libraries/frameworks/impressjs/favicon.png" />
+   <link rel="apple-touch-icon" href="libraries/frameworks/impressjs/apple-touch-icon.png" />
+   <link href="libraries/highlighters/highlight.js/css/tomorrow.css" rel="stylesheet" />   <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body class="impress-not-supported">
+  <div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are   
+      presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> 
+      browser.</p>
+  </div>
+  <div id="impress">
+    
+    <div id="s" class="step slide" 
+  data-x="0" data-y="-2000" data-z="0" 
+   
+    
+    
+   >
+ <h1><b style="font-size: 140%;">SeqPlots</b> - a fast interactive web tool for visualizing next generation sequencing signals along genomic features.</h1>
+ <p><p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @ Internal Seminar, 25 February 2015<p></p>
+
+</div>
+<div id="big" class="step hide" 
+  data-x="0" data-y="-1250" data-z="100" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ <p>The <b>BIG</b> <span class="thoughts">question!</span></p>
+
+</div>
+<div id="q" class="step cent" 
+  data-x="0" data-y="-700" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="2">
+ 
+ <p>What are the <strong>relationships</strong> between <strong>chromatin features</strong>, underlying <strong>DNA sequence</strong> and <strong>gene regulation</strong>?</p>
+
+</div>
+<div id="qf1v2" class="step " 
+  data-x="-300" data-y="50" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1.2">
+ 
+ <p><img src="chromatin2.jpg" alt="chrom" height='500px'></p>
+
+<p class="source" style="font-size: 0.46em;">Source: http://www.cliffsnotes.com/assets/24452.jpg</p>
+
+</div>
+<div id="qf2" class="step " 
+  data-x="700" data-y="50" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1.2">
+ 
+ <p><img src="model.png" alt="mod"></p>
+
+</div>
+<div id="o0" class="step " 
+  data-x="0" data-y="-220" data-z="600" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="tools" class="step " 
+  data-x="0" data-y="900" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="2">
+ <h2>Every BIG question needs <strong>small tools</strong>.</h2>
+ 
+</div>
+<div id="t1" class="step " 
+  data-x="-350" data-y="1200" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1.2">
+ 
+ <ul>
+<li>ChIP-<b style="color: red;">seq</b></li>
+<li>RNA-<b style="color: red;">seq</b></li>
+<li>DNase-<b style="color: red;">seq</b></li>
+<li>MNase-<b style="color: red;">seq</b></li>
+<li>ATAC-<b style="color: red;">seq</b></li>
+</ul>
+
+</div>
+<div id="rad" class="step red" 
+  data-x="-350" data-y="1650" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ <p><img src="Red_Arrow_Down.svg" alt="rad" hight=80px, width=80px style="margin-left:50px; margin-bottom:40px">
+<br></p>
+
+<p>1. DNA library</p>
+
+<p>2. Short reads</p>
+
+<p>3. <b>Genomic position</b></p>
+
+</div>
+<div id="problem" class="step sm hide" 
+  data-x="300" data-y="1100" data-z="0" 
+    data-rotate="0" 
+    
+   data-rotate-y="90" 
+    data-scale="1.2">
+ 
+ <p><span class=red>Technical problem</span> – typical experiment produce <strong>tens of 
+millions</strong> of such positions over <strong>hundreds of millions to billions</strong> possible
+locations (base pairs) in the genome!</p>
+
+</div>
+<div id="solution1" class="step " 
+  data-x="300" data-y="1450" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ <p><u>Solutions:</u></p>
+
+<ul>
+<li>Shrink/simplify the data so they are small enough for us to understand (e.g. peak calls, unsupervised machine learning) </li>
+</ul>
+
+</div>
+<div id="solution2" class="step " 
+  data-x="300" data-y="1750" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ <ul>
+<li>Use <b>data visualization</b> to make an original comprehensible to us</li>
+</ul>
+
+</div>
+<div id="o1" class="step " 
+  data-x="0" data-y="1400" data-z="600" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="vis" class="step " 
+  data-x="0" data-y="2400" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="2">
+ <h2>Scientific data visualization – is it important?</h2>
+ 
+</div>
+<div id="v1" class="step sm" 
+  data-x="0" data-y="2650" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="2">
+ 
+ <ul>
+<li>Data visualization is <b class="zzz">prevalent approach</b> in science</li>
+</ul>
+
+</div>
+<div id="v1a" class="step md" 
+  data-x="-1000" data-y="2650" data-z="300" 
+   
+    
+   data-rotate-y="90" 
+    data-scale="1">
+ 
+ <p><img src="heatmap.jpg" alt="">
+Shaded matrix display from Loua (1873).</p>
+
+</div>
+<div id="v2" class="step sm" 
+  data-x="0" data-y="3000" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="2.0">
+ 
+ <ul>
+<li>Since the advent of sequencing techniques there is <strong>great advance</strong> in methods specific to this field </li>
+<li>Helps us to <strong>better understand the data</strong> and find the patterns that might be lost due to shrinkage/simplification</li>
+<li>Great for <strong>exploratory data analyses</strong></li>
+<li>Very useful for <strong>results presentation</strong></li>
+</ul>
+
+</div>
+<div id="o2" class="step " 
+  data-x="-200" data-y="2800" data-z="600" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="stat" class="step sm hide" 
+  data-x="0" data-y="3900" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="3">
+ <h2>We can visualize reads directly, but usually more useful is <strong>converting them to a read coverage</strong></h2>
+ 
+</div>
+<div id="statp1" class="step " 
+  data-x="-300" data-y="4600" data-z="200" 
+    data-rotate="0" 
+    
+    
+    data-scale="1.5">
+ 
+ <p><img src="readscov.png" alt="">
+<br />
+<img src="covarrow.png" alt=""></p>
+
+</div>
+<div id="statp2" class="step " 
+  data-x="100" data-y="5200" data-z="0" 
+    data-rotate="0" 
+    
+    
+    data-scale="1.5">
+ 
+ <p><img src="trackscov.png" alt=""></p>
+
+</div>
+<div id="o3" class="step " 
+  data-x="0" data-y="4600" data-z="1200" 
+    data-rotate="0" 
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="global" class="step " 
+  data-x="3000" data-y="-2300" data-z="0" 
+   
+    
+    
+    data-scale="2">
+ <h2><span class='red'>*-seq</span> data visualization:<br/>global approaches.</h2>
+ 
+</div>
+<div id="circos" class="step " 
+  data-x="3000" data-y="-1700" data-z="0" 
+   
+    
+    
+    data-scale="1.2">
+ 
+ <p><img src="assets/fig/circos-1.svg" alt="plot of chunk circos"> </p>
+
+</div>
+<div id="hibo" class="step " 
+  data-x="3000" data-y="-1900" data-z="600" 
+   
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="gb" class="step " 
+  data-x="3000" data-y="-900" data-z="0" 
+   
+    
+    
+    data-scale="2">
+ <h2><span class='red'>*-seq</span> data visualization:<br />genome browsers.</h2>
+ 
+</div>
+<div id="ucsc" class="step " 
+  data-x="2650" data-y="-500" data-z="0" 
+   
+    
+    
+    data-scale="1">
+ 
+ <p>UCSC Genome Browser
+<img src="ucsc.png" alt=""></p>
+
+</div>
+<div id="igv" class="step " 
+  data-x="3350" data-y="-500" data-z="0" 
+   
+    
+    
+    data-scale="1">
+ 
+ <p>IGV (Broad Institute)
+<img src="igv.png" alt=""></p>
+
+</div>
+<div id="biod" class="step " 
+  data-x="2675" data-y="0" data-z="0" 
+   
+    
+    
+    data-scale="1.05">
+ 
+ <p>Biodalliance (Thomas Down)
+<img src="biodalliance.png" alt=""></p>
+
+</div>
+<div id="biod" class="step " 
+  data-x="3000" data-y="-100" data-z="0" 
+   
+    
+    
+    data-scale="1.5">
+ 
+ 
+</div>
+<div id="gbo" class="step " 
+  data-x="3000" data-y="-400" data-z="600" 
+   
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="trf" class="step " 
+  data-x="3000" data-y="2400" data-z="0" 
+   
+    
+    
+    data-scale="2">
+ <h2><span class='red'>*-seq</span> data visualization:<br />multiple parts of genome, using pre-defined genomic features</h2>
+ <hr/>
+
+</div>
+<div id="av" class="step sm cent" 
+  data-x="3000" data-y="3100" data-z="0" 
+   
+    
+    
+    data-scale="2">
+ 
+ <p><img src="assets/fig/aver-1.svg" alt="plot of chunk aver"> </p>
+
+</div>
+<div id="hm" class="step sm cent" 
+  data-x="3000" data-y="3920" data-z="0" 
+   
+    
+    
+    data-scale="2">
+ 
+ <p><img src="assets/fig/heatmap-1.png" alt="plot of chunk heatmap"> </p>
+
+</div>
+<div id="osp" class="step " 
+  data-x="3000" data-y="3250" data-z="1500" 
+   
+    
+    
+    data-scale="1">
+ 
+ 
+</div>
+<div id="ngsp1" class="step sm cent" 
+  data-x="2550" data-y="5000" data-z="0" 
+   
+    
+    
+    data-scale="1.2">
+ 
+ <p>Command line tools, e.g. ngsplot</p>
+
+<hr/>
+
+<p><img src="nsgp1.png" alt="">
+<br /><br />
+<img src="ngsp2.png" alt=""></p>
+
+</div>
+<div id="dt1" class="step sm cent" 
+  data-x="3550" data-y="5000" data-z="0" 
+   
+    
+    
+    data-scale="1.2">
+ 
+ <p>Tools on Galaxy platform: deepTools, Cistrome, etc.</p>
+
+<hr/>
+
+<p><img src="dt1.png" alt="" height="336px">
+<img src="dt2.png" alt=""></p>
+
+</div>
+<div id="logo" class="step " 
+  data-x="3000" data-y="1300"  
+   
+    
+    
+    data-scale="4">
+ 
+ <p><img src="assets/fig/logo-1.svg" alt="plot of chunk logo"> </p>
+
+</div>
+<div id="why" class="step cent" 
+  data-x="6000" data-y="-2200"  
+   
+    
+    
+    data-scale="3">
+ <h2>Why do we need <strong>yet another</strong> visualization tool?</h2>
+ <hr />
+
+</div>
+<div id="why1" class="step md" 
+  data-x="6000" data-y="-1600"  
+   
+    
+    
+    data-scale="2">
+ 
+ <p>Existing solutions did not meet our requirements:</p>
+
+<ul>
+<li>Custom scripts and pargramic languages labraries allows to run things in batch, 
+but are <strong>too complicated</strong> to run for users without IT expertise</li>
+<li>Even with good training these tools <strong>requires a lot of time</strong> to code</li>
+<li>Galaxy/Cistrome was too <strong>slow</strong> and <strong>not configurable</strong> enough 
+(plus <strong>data privacy</strong> problem!)</li>
+</ul>
+
+<hr />
+
+</div>
+<div id="why2" class="step cent md" 
+  data-x="6000" data-y="-1000"  
+   
+    
+    
+    data-scale="2">
+ 
+ <p>I want take the best from two worlds - connect the <strong>intuitiveness</strong> and <strong>interactiveness</strong> of genome browsers with <strong>visualization power</strong> of plotting 1000s of  genomic features at once.</p>
+
+</div>
+<div id="why3" class="step cent lg" 
+  data-x="6000" data-y="-500"  
+   
+    
+    
+    data-scale="2">
+ 
+ <hr />
+
+<p>Goal: <strong>fast</strong>, <strong>intuitive</strong> software for <strong>exploratory data analyses</strong>!</p>
+
+<hr />
+
+</div>
+<div id="seqplots" class="step cent" 
+  data-x="6000" data-y="-50"  
+   
+    
+    
+    data-scale="3">
+ <h2>SeqPlots is <strong>this</strong> software!</h2>
+ 
+</div>
+<div id="spim" class="step cent md" 
+  data-x="6000" data-y="900"  
+   
+    
+    
+    data-scale="2">
+ 
+ <hr />
+
+<p>We developed a highly configurable, <strong>GUI operated web application</strong> for <strong>rapidly generating</strong> sets of publication quality <strong>linear plots</strong> and <strong>heatmaps</strong>. </p>
+
+<hr />
+
+<p><img src="sp.png" alt="sp" height=600px></p>
+
+</div>
+<div id="waod" class="step lg cent" 
+  data-x="6000" data-y="2100"  
+   
+    
+    
+    data-scale="2.5">
+ 
+ <p><strong>See SeqPlots in action on the movie...</strong></p>
+
+<hr />
+
+</div>
+<div id="task" class="step slide" 
+  data-x="6900" data-y="2800" data-z="380" 
+   
+    
+   data-rotate-y="-90" 
+    data-scale="1">
+ <h2><strong>Quick explanaton of the example in hand</strong></h2>
+ <hr />
+
+<p><strong>Files - signal profiles from ChIP-seq experiments:</strong></p>
+
+<ul>
+<li>H3K4me3 (mark active promoters)</li>
+<li>H3K36me3 (mark transcribed regions of active genes)</li>
+<li>HTZ1 (histon variant, <em>C. elegans</em> homolog of H2A.Z)</li>
+</ul>
+
+<hr />
+
+<p><strong>Files - genomic features:</strong></p>
+
+<ul>
+<li><em>C. elegans</em> transcription start sites (TSS), divided into 5 expression bins 
+based on RNA-seq data</li>
+</ul>
+
+<hr />
+
+<p><strong>Tasks:</strong></p>
+
+<ul>
+<li>Compare histone marks between highly and lowly expressed genes.</li>
+<li>Check if CpG (CG-dinucleotide) occupancy is higher on transcription start sites (TSS) relative to local neighborhood</li>
+</ul>
+
+<hr />
+
+</div>
+<div id="vid" class="step lg cent" 
+  data-x="6000" data-y="2800"  
+   
+    
+    
+    data-scale="1.8">
+ 
+ <iframe width="840" height="600" src="https://www.youtube.com/embed/9TKYZQa1Ykw?vq=hd720&rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+</div>
+<div id="spaccs" class="step lg" 
+  data-x="6000" data-y="3900"  
+   
+    
+    
+    data-scale="2">
+ 
+ <hr />
+
+<p>The app is available as:</p>
+
+<ul>
+<li><strong>R package</strong> from Bioconductor </li>
+<li><strong>Mac OS X app</strong></li>
+<li><strong>Server deployment</strong> with Shiny Server</li>
+<li><strong>Web service</strong> (shinyapps.io, Amazon EC2, etc.) </li>
+</ul>
+
+<hr />
+
+</div>
+<div id="clust" class="step " 
+  data-x="5900" data-y="5000"  
+   
+    
+    
+    data-scale="1.5">
+ 
+ <p><img src="Slide17.png" alt=""></p>
+
+</div>
+ 
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+  </div>
+
+  <div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+  </div>
+  
+  <div style="position: fixed; bottom: 10px; left: 10px; pointer-events: auto;">
+      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </div>
+  </body>
+ <script>
+  if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+  }
+ </script>
+ <script src="libraries/frameworks/impressjs/js/impress.js"></script>
+ <script>impress().init();</script>
+ <!-- LOAD HIGHLIGHTER JS FILES -->
+ <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+  
+ </html>

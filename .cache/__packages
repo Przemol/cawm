@@ -1,0 +1,12 @@
+base
+BiocInstaller
+circlize
+devtools
+EBImage
+extrafont
+ggplot2
+HilbertVis
+lattice
+slidify
+seqplots
+BiocGenerics
