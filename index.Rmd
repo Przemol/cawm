@@ -353,7 +353,7 @@ We developed a highly configurable, **GUI operated web application** for **rapid
 
 --- #task x:6900 y:2800 scale:1 .slide z:380 roty:-90
 ## **Quick explanaton of the example in hand**
-<hr /><br />
+<br /><hr />
 
 **Files - signal profiles from ChIP-seq experiments:**
 - H3K4me3 (mark active promoters)
