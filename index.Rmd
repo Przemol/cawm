@@ -352,7 +352,7 @@ We developed a highly configurable, **GUI operated web application** for **rapid
 <hr />
 
 --- #task x:6900 y:2800 scale:1 .slide z:380 roty:-90
-## **Quick explanaton of the example in hand**
+## **<u>Quick explanaton of the example in hand</u>**
 <br /><hr />
 
 **Files - signal profiles from ChIP-seq experiments:**
