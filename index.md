@@ -256,5 +256,5 @@ The app is available as:
 <hr />
 
 --- #clust x:5900 y:5000 scale:1.5
-![](Slide17.png)
+![](last.png)
 
