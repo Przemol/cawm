@@ -223,7 +223,6 @@ We developed a highly configurable, **GUI operated web application** for **rapid
 **Files - signal profiles from ChIP-seq experiments:**
 - H3K4me3 (mark active promoters)
 - H3K36me3 (mark transcribed regions of active genes)
-- HTZ1 (histon variant, *C. elegans* homolog of H2A.Z)
 
 <hr />
 
