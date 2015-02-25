@@ -24,7 +24,7 @@ What are the **relationships** between **chromatin features**, underlying **DNA 
 --- #qf2 x:700 y:50 z:0 rot:0 scale:1.2
 ![mod](model.png)
 
---- #o0 x:0 y:-220 z:600 rot:0 scale:1
+
 
 --- #tools x:0 y:900 z:0 rot:0 scale:2
 
@@ -79,7 +79,7 @@ Shaded matrix display from Loua (1873).
 - Very useful for **results presentation**
 
 
---- #o2 x:-200 y:2800 z:600 rot:0 scale:1
+
 
 
 
@@ -170,7 +170,7 @@ highlight.chromosome("chr1")
 circos.clear()
 ```
 
---- #hibo x:3000 y:-1900 z:600 scale:1
+
 
 
 
@@ -391,4 +391,9 @@ The app is available as:
 
 --- #clust x:5900 y:5000 scale:1.5
 ![](last.png)
+
+--- #last x:3000 y:1400 z:100000 scale:1 .cent
+Thank you!
+<hr />
+<img src="ppl.JPG" alt="" height='500px'>
 
