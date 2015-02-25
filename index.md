@@ -89,8 +89,10 @@ Shaded matrix display from Loua (1873).
 
 --- #statp1 x:-300 y:4600 z:200 rot:0 scale:1.5
 ![](readscov.png)
-<br />
+<p class="source" style="font-size: 0.25em;">Source: http://bedtools.readthedocs.org/en/latest/content/tools/genomecov.html</p>
 ![](covarrow.png)
+
+
 
 --- #statp2 x:100 y:5200 z:0 rot:0 scale:1.5
 ![](trackscov.png)
@@ -115,7 +117,7 @@ Shaded matrix display from Loua (1873).
 --- #gb x:3000 y:-900 z:0 scale:2
 ## <span class='red'>*-seq</span> data visualization:<br />genome browsers.
 
---- #ucsc x:2650 y:-500 z:0 scale:1 
+--- #ucsc x:2670 y:-500 z:0 scale:1 
 UCSC Genome Browser
 ![](ucsc.png)
 
@@ -123,11 +125,46 @@ UCSC Genome Browser
 IGV (Broad Institute)
 ![](igv.png)
 
---- #biod x:2675 y:0 z:0 scale:1.05
-Biodalliance (Thomas Down)
-![](biodalliance.png)
+--- #biod x:3000 y:20 z:0 scale:1
+Biodalliance (Thomas Down) - live
+<div id="svgHolder" style=""></div>
 
---- #biod x:3000 y:-100 z:0 scale:1.5
+<script language="javascript" src="http://www.biodalliance.org/release-0.13/dalliance-compiled.js"></script>
+<script language="javascript">
+  new Browser({
+    chr:          '22',
+    viewStart:    30000000,
+    viewEnd:      30030000,
+    cookieKey:    'human',
+    coordSystem: {
+      speciesName: 'Human',
+      taxon: 9606,
+      auth: 'NCBI',
+      version: '36',
+      ucscName: 'hg18'
+    },
+
+    sources:     [{name:                 'Genome',      
+                   uri:                  'http://www.derkholm.net:8080/das/hg18comp/',        
+                   tier_type:            'sequence',
+                   provides_entrypoints: true},
+                  {name:                 'Genes',     
+                   desc:                 'Gene structures from Ensembl 54',
+                   uri:                  'http://www.derkholm.net:8080/das/hsa_54_36p/',      
+                   collapseSuperGroups:  true,
+                   provides_karyotype:   true,
+                   provides_search:      true},
+                  {name:                 'Repeats',     
+                   uri:                  'http://www.derkholm.net:8080/das/hsa_54_36p/',      
+                   stylesheet_uri:       'http://www.derkholm.net/dalliance-test/stylesheets/ens-repeats.xml'},
+                  {name:                 'MeDIP raw',
+                   uri:                  'http://www.derkholm.net:8080/das/medipseq_reads'},
+                  {name:                 'MeDIP-seq',
+                   uri:                  'http://www.ebi.ac.uk/das-srv/genomicdas/das/batman_seq_SP/'}]
+  });
+</script>
+
+
 
 --- #gbo x:3000 y:-400 z:600 scale:1
 

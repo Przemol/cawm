@@ -218,9 +218,11 @@ Shaded matrix display from Loua (1873).</p>
     
     data-scale="1.5">
  
- <p><img src="readscov.png" alt="">
-<br />
-<img src="covarrow.png" alt=""></p>
+ <p><img src="readscov.png" alt=""></p>
+
+<p class="source" style="font-size: 0.25em;">Source: http://bedtools.readthedocs.org/en/latest/content/tools/genomecov.html</p>
+
+<p><img src="covarrow.png" alt=""></p>
 
 </div>
 <div id="statp2" class="step " 
@@ -271,7 +273,7 @@ Shaded matrix display from Loua (1873).</p>
  
 </div>
 <div id="ucsc" class="step " 
-  data-x="2650" data-y="-500" data-z="0" 
+  data-x="2670" data-y="-500" data-z="0" 
    
     
     
@@ -293,24 +295,52 @@ Shaded matrix display from Loua (1873).</p>
 
 </div>
 <div id="biod" class="step " 
-  data-x="2675" data-y="0" data-z="0" 
+  data-x="3000" data-y="20" data-z="0" 
    
     
     
-    data-scale="1.05">
+    data-scale="1">
  
- <p>Biodalliance (Thomas Down)
-<img src="biodalliance.png" alt=""></p>
+ <p>Biodalliance (Thomas Down) - live</p>
 
-</div>
-<div id="biod" class="step " 
-  data-x="3000" data-y="-100" data-z="0" 
-   
-    
-    
-    data-scale="1.5">
- 
- 
+<div id="svgHolder" style=""></div>
+
+<script language="javascript" src="http://www.biodalliance.org/release-0.13/dalliance-compiled.js"></script>
+
+<script language="javascript">
+  new Browser({
+    chr:          '22',
+    viewStart:    30000000,
+    viewEnd:      30030000,
+    cookieKey:    'human',
+    coordSystem: {
+      speciesName: 'Human',
+      taxon: 9606,
+      auth: 'NCBI',
+      version: '36',
+      ucscName: 'hg18'
+    },
+
+    sources:     [{name:                 'Genome',      
+                   uri:                  'http://www.derkholm.net:8080/das/hg18comp/',        
+                   tier_type:            'sequence',
+                   provides_entrypoints: true},
+                  {name:                 'Genes',     
+                   desc:                 'Gene structures from Ensembl 54',
+                   uri:                  'http://www.derkholm.net:8080/das/hsa_54_36p/',      
+                   collapseSuperGroups:  true,
+                   provides_karyotype:   true,
+                   provides_search:      true},
+                  {name:                 'Repeats',     
+                   uri:                  'http://www.derkholm.net:8080/das/hsa_54_36p/',      
+                   stylesheet_uri:       'http://www.derkholm.net/dalliance-test/stylesheets/ens-repeats.xml'},
+                  {name:                 'MeDIP raw',
+                   uri:                  'http://www.derkholm.net:8080/das/medipseq_reads'},
+                  {name:                 'MeDIP-seq',
+                   uri:                  'http://www.ebi.ac.uk/das-srv/genomicdas/das/batman_seq_SP/'}]
+  });
+</script>
+
 </div>
 <div id="gbo" class="step " 
   data-x="3000" data-y="-400" data-z="600" 
