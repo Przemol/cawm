@@ -32,3 +32,4 @@ The <b>BIG</b> <span class="thoughts">question!</span>
 --- #o2 x:-200 y:2800 z:600 rot:0 scale:1
 --- #o3 x:0 y:4600 z:1200 rot:0 scale:1
 --- #hibo x:3000 y:-1900 z:600 scale:1
+--- #o1 x:0 y:1400 z:600 rot:0 scale:1

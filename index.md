@@ -57,7 +57,7 @@ locations (base pairs) in the genome!
 --- #solution2 x:300 y:1750 z:0 rot:0 scale:1
 - Use <b>data visualization</b> to make an original comprehensible to us
 
---- #o1 x:0 y:1400 z:600 rot:0 scale:1
+
 
 
 
