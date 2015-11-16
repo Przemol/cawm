@@ -108,7 +108,7 @@ Shaded matrix display from Loua (1873).
 ## <span class='red'>*-seq</span> data visualization:<br/>global approaches.
 
 --- #circos x:3000 y:-1700 z:0 scale:1.2
-```{r circos, fig.width=8, fig.height=8, echo=FALSE, message=FALSE, warning=FALSE, dev='svg', dev.args=list(bg=NA)}
+```{r circos, fig.width=8, fig.height=8, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, dev='svg', dev.args=list(bg=NA)}
 
 library(circlize) 
 
@@ -242,7 +242,7 @@ Biodalliance (Thomas Down) - live
 <hr/>
 
 --- #av x:3000 y:3100 z:0 scale:2  .sm .cent
-```{r aver, fig.width=8, fig.height=5, echo=FALSE, message=FALSE, warning=FALSE, dev='svg', dev.args=list(bg=NA)}
+```{r aver, fig.width=8, fig.height=5, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, dev='svg', dev.args=list(bg=NA)}
 load('sp/ex1.Rdata')
 require(seqplots)
 par(xpd=FALSE)
@@ -262,7 +262,7 @@ par(xpd=FALSE)
 ```
 
 --- #hm x:3000 y:3920 z:0 scale:2  .sm .cent
-```{r heatmap, fig.width=9.1, fig.height=6, echo=FALSE, message=FALSE, warning=FALSE, dev='png', dev.args=list(bg=NA)}
+```{r heatmap, fig.width=9.1, fig.height=6, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, dev='png', dev.args=list(bg=NA)}
 load('sp/ex1.Rdata')
 plotHeatmap(
     to_save[[1]], sortrows = 'decreasing', clstmethod = "none",
@@ -426,8 +426,20 @@ The app is available as:
 
 <hr />
 
---- #clust x:5900 y:5000 scale:1.5
-![](last.png)
+--- #clust x:5900 y:5000 scale:1.8 .slide
+<img src="logoh.png" alt="" height='130px'>
+<hr />
+
+<p style="margin-top:30px; margin-bottom:15px;"><strong style="color:black; font-size:140%;">How to get SeqPlots:</strong></p>
+
+<ul style="color:black; padding-left:30px; margin-bottom:40px;">
+<li><strong>Official documentation</strong> with installation instructions: <br> <a href="http://przemol.github.io/seqplots">http://przemol.github.io/seqplots</a></li>
+<li>Bioconductor: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
+<li>GitHub: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
+</ul>
+
+<hr />
+<img src="bioc.png" alt="" width='350px' style="margin-right:70px;"> <img src="github.png" alt="" width='350px'>
 
 --- #last x:3000 y:1400 z:100000 scale:1 .cent
 Thank you!

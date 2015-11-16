@@ -9,7 +9,7 @@ mode: selfcontained
 --- #s .slide x:0 y:-2000 z:0
 
 <h1><b style="font-size: 140%;">SeqPlots</b> - a fast interactive web tool for visualizing next generation sequencing signals along genomic features.</h1>
-<p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @ Internal Seminar, 25 February 2015<p>
+<p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @ Graduate Seminar Series, 17 November 2015<p>
 
 --- #big x:0 y:-1250 rot:0 z:100 scale:1 .hide
 The <b>BIG</b> <span class="thoughts">question!</span>
@@ -291,8 +291,20 @@ The app is available as:
 
 <hr />
 
---- #clust x:5900 y:5000 scale:1.5
-![](last.png)
+--- #clust x:5900 y:5000 scale:1.8 .slide
+<img src="logoh.png" alt="" height='130px'>
+<hr />
+
+<p style="margin-top:30px; margin-bottom:15px;"><strong style="color:black; font-size:140%;">How to get SeqPlots:</strong></p>
+
+<ul style="color:black; padding-left:30px; margin-bottom:40px;">
+<li><strong>Official documentation</strong> with installation instructions: <br> <a href="http://przemol.github.io/seqplots">http://przemol.github.io/seqplots</a></li>
+<li>Bioconductor: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
+<li>GitHub: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
+</ul>
+
+<hr />
+<img src="bioc.png" alt="" width='350px' style="margin-right:70px;"> <img src="github.png" alt="" width='350px'>
 
 --- #last x:3000 y:1400 z:100000 scale:1 .cent
 Thank you!
