@@ -299,8 +299,8 @@ The app is available as:
 
 <ul style="color:black; padding-left:30px; margin-bottom:40px;">
 <li><strong>Official documentation</strong> with installation instructions: <br> <a href="http://przemol.github.io/seqplots">http://przemol.github.io/seqplots</a></li>
-<li>Bioconductor: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
-<li>GitHub: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
+<li><strong>Bioconductor</strong>: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
+<li><strong>GitHub</strong>: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
 </ul>
 
 <hr />
