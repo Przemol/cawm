@@ -295,12 +295,12 @@ The app is available as:
 <img src="logoh.png" alt="" height='130px'>
 <hr />
 
-<p style="margin-top:30px; margin-bottom:15px;"><strong style="color:black; font-size:140%;">How to get SeqPlots:</strong></p>
+<p style="margin-top:10px; margin-bottom:15px;"><strong style="color:black; font-size:140%;">How to get SeqPlots:</strong></p>
 
-<ul style="color:black; padding-left:30px; margin-bottom:40px;">
-<li><strong>Official documentation</strong> with installation instructions: <br> <a href="http://przemol.github.io/seqplots">http://przemol.github.io/seqplots</a></li>
-<li><strong>Bioconductor</strong>: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
-<li><strong>GitHub</strong>: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
+<ul style="color:black; padding-left:30px; margin-bottom:30px;">
+<li style="margin-bottom:15px;"><strong>Official documentation</strong> with installation instructions: <br> <a href="http://przemol.github.io/seqplots">http://przemol.github.io/seqplots</a></li>
+<li style="margin-bottom:15px;"><strong>Bioconductor</strong>: <br> <a href="http://bioconductor.org/packages/seqplots">http://bioconductor.org/packages/seqplots</a></li>
+<li style="margin-bottom:15px;"><strong>GitHub</strong>: <br> <a href="https://github.com/Przemol/seqplots">https://github.com/Przemol/seqplots</a></li>
 </ul>
 
 <hr />
