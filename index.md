@@ -9,7 +9,7 @@ mode: selfcontained
 --- #s .slide x:0 y:-2000 z:0
 
 <h1><b style="font-size: 140%;">SeqPlots</b> - a fast interactive web tool for visualizing next generation sequencing signals along genomic features.</h1>
-<p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @ Graduate Seminar Series, 17 November 2015<p>
+<p style="font-size: 85%; text-align: right;">Przemyslaw Stempor @  Cambridge Area Worm Meeting <br />MRC Laboratory of Molecular Biology <br /><i>17 November 2015</i><p>
 
 --- #big x:0 y:-1250 rot:0 z:100 scale:1 .hide
 The <b>BIG</b> <span class="thoughts">question!</span>
